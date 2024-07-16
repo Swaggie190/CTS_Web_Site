@@ -85,7 +85,7 @@ h6 {
   background: #213b52;
 }
 
-#header .logo h1 {
+#header  h1 {
   font-size: 24px;
   margin: 0;
   padding: 10px 0;
@@ -398,7 +398,7 @@ h6 {
 }
 
 #home {
-  min-height: 150vh;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
