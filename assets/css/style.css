@@ -9,8 +9,21 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;700&display=swap');
+
+:root {
+  --font-main: 'Nunito', sans-serif;
+  --font-accent: 'Poppins', sans-serif;
+}
+
+.tagline {
+  font-family: var(--font-accent);
+  font-weight: 500;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-main);
+  font-size: 19px;
   color: #444444;
 }
 
@@ -30,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-accent);
 }
 
 /*--------------------------------------------------------------
@@ -43,7 +56,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #213b52;
+  background: #2891ec;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -52,13 +65,13 @@ h6 {
 
 .back-to-top i {
   font-size: 24px;
-  color: #fff;
+  color: #000;
   line-height: 0;
 }
 
 .back-to-top:hover {
   background: #fdc134;
-  color: #fff;
+  color: #000;
 }
 
 .back-to-top.active {
@@ -82,7 +95,8 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 16px 0;
-  background: #213b52;
+  background: #2891ec;
+  text-decoration: solid ;
 }
 
 #header  h1 {
@@ -93,19 +107,14 @@ h6 {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
 }
 
-#header .logo h1 a,
+/* #header .logo h1 a,
 #header .logo h1 a:hover {
   color: #fff;
   text-decoration: none;
-}
+} */
 
-#header .logo h1 a span,
-#header .logo h1 a:hover span {
-  color: #fdc134;
-}
 
 #header .logo img {
   padding: 0;
@@ -133,6 +142,8 @@ h6 {
 
 .navbar li {
   position: relative;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .navbar a,
@@ -142,7 +153,7 @@ h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 14px;
-  color: #adc7de;
+  color: #000000;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -158,24 +169,9 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  color: #f2994A;
 }
 
-.navbar .getstarted,
-.navbar .getstarted:focus {
-  background: #213b52;
-  color: #fff;
-  padding: 4px 25px 6px 25px;
-  margin-left: 30px;
-  border-radius: 50px;
-  border: 2px solid #fdc134;
-}
-
-.navbar .getstarted:hover,
-.navbar .getstarted:focus:hover {
-  background: #fdc134;
-  color: #213b52;
-}
 
 .navbar .dropdown ul {
   display: block;
@@ -234,7 +230,7 @@ h6 {
   visibility: visible;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 768px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
   }
@@ -363,8 +359,8 @@ h6 {
 #hero {
   width: 100%;
   padding: 0 0 0 0;
-  background: #213b52;
-  background: linear-gradient(180deg, #213b52 0%, rgb(33, 60, 84) 35%, rgb(32, 69, 100) 100%);
+  background: #99CCFF;
+  background: linear-gradient(180deg, #99CCFF 0%, #2891ec 35%, rgb(123, 192, 248) 100%);
 }
 
 #hero h1 {
@@ -373,32 +369,10 @@ h6 {
   font-weight: 700;
   line-height: 56px;
   color: #d2e0ed;
-  font-family: "Poppins", sans-serif;
-}
-
-#hero h2 {
-  color: #fff;
-  margin-bottom: 30px;
-  font-size: 22px;
-}
-
-#hero .btn-get-started {
-  color: #213b52;
-  border-radius: 50px;
-  padding: 8px 35px 10px 35px;
-  border: 2px solid #fdc134;
-  transition: all ease-in-out 0.3s;
-  display: inline-block;
-  background: #fdc134;
-}
-
-#hero .btn-get-started:hover {
-  background: transparent;
-  color: #fff;
 }
 
 #home {
-  min-height: 120vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -409,7 +383,9 @@ h6 {
   background-position: center;
   color: white;
   position: relative;
+  font-size: 20px;
 }
+
 #home::before {
   content: "";
   position: absolute;
@@ -429,25 +405,27 @@ h6 {
   margin: 20px auto;
   font-size: 1.1em;
   line-height: 1.6;
+  text-justify: distribute;
 }
 
 .cta-button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #2891ec;
+  color:black;
   padding: 15px 30px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
   font-size: 1.2em;
   transition: background-color 0.3s;
   margin-top: 20px;
 }
 .cta-button:hover {
-  background-color: #45a049;
+  background-color: #2891ec;
+  text-decoration: #FFC107;
 }
 
 .tagline {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 20px;
   color: #FFC107;  /* A warm yellow to complement the green */
 }
@@ -493,12 +471,6 @@ h6 {
     line-height: 36px;
   }
 
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-
   #hero .hero-img img {
     width: 70%;
   }
@@ -535,7 +507,7 @@ section {
   padding-bottom: 20px;
   position: relative;
   font-family: "Poppins", sans-serif;
-  color: #213b52;
+  color: #2891ec;
 }
 
 .section-title h2::before {
@@ -620,7 +592,7 @@ section {
 #about-text {
   text-align: center;
   margin-bottom: 40px;
-  color: #213b52;
+  color: #2891ec;
 }
 
 .description {
@@ -628,10 +600,14 @@ section {
   text-align: justify;
 }
 
+/* .description p{
+  font-size: 14px;
+} */
+
 .about .content h3 {
   font-weight: 700;
   font-size: 34px;
-  color: #213b52;
+  color: #2891ec;
 }
 
 .about .content p {
@@ -642,11 +618,11 @@ section {
   font-size: 20px;
   font-weight: 700;
   margin: 5px 0 10px 60px;
-  color: #213b52;
+  color: #2891ec;
 }
 
 .about .content .icon-box h4 a {
-  color: #213b52;
+  color: #2891ec;
   transition: 0.3s;
 }
 
@@ -997,7 +973,7 @@ section {
 .team .member .pic {
   margin-bottom: 15px;
   overflow: hidden;
-  min-height: 260px;
+  min-height: 200px;
 }
 
 .team .member .pic img {
@@ -1359,7 +1335,7 @@ section {
 }
 
 #footer .footer-top p {
-  font-size: 15;
+  font-size: 15px;
   font-style: italic;
   margin: 30px 0 0 0;
   padding: 0;
