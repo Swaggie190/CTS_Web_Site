@@ -1,41 +1,72 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; 
+
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $name = sanitize_input($_POST['name']);
+    $email = sanitize_input($_POST['email']);
+    $subject = sanitize_input($_POST['subject']);
+    $message = sanitize_input($_POST['message']);
+
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['success' => false, 'message' => 'Invalid email format']);
+        exit;
+    }
+
   
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+    $to = "wisdomsibafo45@gmail.com";
+    $email_subject = "New Contact Form Submission: $subject";
+    $email_body = "You have received a new message from your website contact form.\n\n";
+    $email_body .= "Name: $name\n";
+    $email_body .= "Email: $email\n";
+    $email_body .= "Subject: $subject\n";
+    $email_body .= "Message:\n$message\n";
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',npm install -g serve
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
+ 
+    $mail = new PHPMailer(true);
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.example.com';  
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'wisdomsibafo45@gmail.com';     
+        $mail->Password   = 'opah sysc jmfx nfod';     
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Port       = 587;                 
 
-  echo $contact->send();
+        
+        $mail->setFrom($email, $name);
+        $mail->addAddress($to);
+        $mail->addReplyTo($email, $name);
+
+        $mail->isHTML(false);
+        $mail->Subject = $email_subject;
+        $mail->Body    = $email_body;
+
+        $mail->send();
+        echo json_encode(['success' => true, 'message' => 'Message sent successfully']);
+    } catch (Exception $e) {
+        echo json_encode(['success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo]);
+    }
+} else {
+    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+}
 ?>

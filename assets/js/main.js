@@ -203,4 +203,79 @@
     });
   });
 
+ /**
+ * CampusTechSolutions animation
+ */
+const words = ['Campus', 'Tech', 'Solutions'];
+const elements = [document.getElementById('campus'), document.getElementById('tech'), document.getElementById('solutions')];
+
+let currentWordIndex = 0;
+
+function typeWord(index) {
+  new Typed(elements[index], {
+    strings: [words[index]],
+    typeSpeed: 400,
+    startDelay: 0,
+    backSpeed: 0,
+    showCursor: false,
+    loop: false,
+    onComplete: () => {
+      if (index < words.length - 1) {
+        typeWord(index + 1);
+      } else {
+        clearText();
+      }
+    }
+  });
+}
+
+function clearText() {
+  const campus = document.getElementById('campus');
+  const tech = document.getElementById('tech');
+  const solutions = document.getElementById('solutions');
+  
+  gsap.to([campus, tech, solutions], {
+    duration: 6,
+    opacity: 0,
+    onComplete: () => {
+      // Reset the text content and opacity of elements
+      elements.forEach(el => {
+        el.textContent = '';
+        gsap.set(el, { opacity: 1 });
+      });
+      // Reset the currentWordIndex and start typing again
+      currentWordIndex = 0;
+      typeWord(currentWordIndex);
+    }
+  });
+}
+
+// Start the animation
+typeWord(currentWordIndex);
+
+/**
+ * Animation for the intro and tagline
+ */
+
+const tagline = document.querySelector('.tagline');
+const intro = document.querySelector('.intro');
+const introSentences = intro.textContent.split('.');
+
+intro.textContent = '';
+
+introSentences.forEach((sentence, index) => {
+  const sentenceElement = document.createElement('span');
+  sentenceElement.textContent = sentence + '.';
+  intro.appendChild(sentenceElement);
+});
+
+const tl = gsap.timeline();
+
+tl.fromTo(tagline, { opacity: 0 }, { opacity: 1, duration: 1 });
+
+introSentences.forEach((sentence, index) => {
+  tl.fromTo(intro.children[index], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, delay: index * 0.5 });
+});
+
+
 })()

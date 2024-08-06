@@ -27,6 +27,13 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!--Tiped.js-->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!--Gasp animations-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
   <!-- =======================================================
   * Template Name: Bocor
   * Template URL: https://bootstrapmade.com/bocor-bootstrap-template-nice-animation/
@@ -39,7 +46,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header">
+  <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
@@ -49,11 +56,14 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#projects">Projects</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#hosting">Hosting</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="blog.html">Blog</a></li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -67,7 +77,11 @@
 
     <div id="home">
 
-        <h1 style="display: flex;">Campus<div style="color: blue;">Tech</div> <div style="color: black;"> Solutions</div></h1>
+      <h1 style="display: flex; height: 45px; padding-bottom: 15px;">
+        <div id="campus" style="color: white;"></div>
+        <div id="tech" style="color: blue;"></div>
+        <div id="solutions" style="color: black;"></div>
+      </h1>
         <p class="tagline">Empowering Cameroon's Tech Future</p>
         <p class="intro">
           At Campustech Solutions, we're dedicated to driving technological advancement in Cameroon. 
@@ -75,26 +89,105 @@
           and champion gender inclusivity in the tech industry.
         </p>
         <a href="#contact" class="cta-button">Join Us</a>
-        <!-- <div class="highlights">
-          <div class="highlight">
-              <div class="highlight-icon">🖥️</div>
-              <h3>Tech Solutions</h3>
-              <p>Innovative solutions tailored for Cameroon's unique needs</p>
-          </div>
-          <div class="highlight">
-              <div class="highlight-icon">🎓</div>
-              <h3>Skill Building</h3>
-              <p>Comprehensive training programs across various tech fields</p>
-          </div>
-          <div class="highlight">
-              <div class="highlight-icon">👩‍💻</div>
-              <h3>Women in Tech</h3>
-              <p>Initiatives to boost female participation in technology</p>
-          </div>
-        </div> -->
       </div>
 
     </section><!-- End Hero -->
+
+ <!-- ======= Services Section ======= -->
+ <section id="services" class="services section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-aos="fade-in">Services</h2>
+      <p data-aos="fade-in">Empowering society through innovative tech solutions and fostering the next generation of tech leaders.</p>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5 d-flex" data-aos="fade-right">
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/img/services-1.jpg" alt="Innovative Tech Solutions">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Innovative Tech Solutions</a></h5>
+            <p class="card-text">We develop cutting-edge technologies to address critical societal challenges.</p>
+            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 d-flex" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/img/services-2.jpg" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Tech solutions for enterprises</a></h5>
+            <p class="card-text">
+We empower businesses with tech solutions.</p>
+            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-5 d-flex" data-aos="fade-right">
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/img/services-3.jpg" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Tech training programs</a></h5>
+            <p class="card-text">We provide comprehensive training programs in various tech fields, equipping you for success.</p>
+            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 d-flex" data-aos="fade-left">
+        <div class="card">
+          <div class="card-img">
+            <img src="assets/img/services-4.jpg" alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Tech Competitions</a></h5>
+            <p class="card-text"> We host exciting hackathons and coding competitions that spark innovation and tackle real-world problems.</p>
+            <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Services Section -->
+
+<!-- ======= Projects Section ======= -->
+<section id="projects" class="projects section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2 data-aos="fade-in">Projects</h2>
+      <p data-aos="fade-in">Dive into our tech projects.</p>
+    </div>
+
+    <div class="row content">
+      <div class="col-md-5" data-aos="fade-right">
+        <img src="assets/img/features-1.svg" class="img-fluid" alt="">
+      </div>
+      <div class="col-md-7 pt-4" data-aos="fade-left">
+        <h3>GasTrack</h3>
+        <p class="fst-italic">
+          <b> Problem:</b> Finding the right gas bottle can be a frustrating experience. 
+          You might spend time calling or visiting stores, only to discover they don't have the specific gas you need.
+
+          <b>Solution:</b> We're building GasTrack, a user-friendly web application that will connect you with nearby gas stores and their real-time gas inventory. 
+          Simply enter the type of gas bottle you need, and GasTrack will show you the closest stores that have it in stock.
+        </p>
+        <ul>
+          <li><i class="bi bi-check"></i> Save time and effort: No more wasted trips or endless phone calls!</li>
+          <li><i class="bi bi-check"></i> Convenience: Find what you need quickly and easily from the comfort of your home.</li>
+          <li><i class="bi bi-check"></i> Transparency: Real-time inventory ensures you only visit stores that have your gas in stock.</li>
+        </ul>
+      </div>
+    </div>
+</section> <!--End Projects section-->
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about section-bg">
@@ -140,101 +233,6 @@
 
       </div>
     </section><!-- End About Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-in">Services</h2>
-          <p data-aos="fade-in">Empowering society through innovative tech solutions and fostering the next generation of tech leaders.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 d-flex" data-aos="fade-right">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/services-1.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Innovative Tech Solutions</a></h5>
-                <p class="card-text">We develop cutting-edge technologies to address critical societal challenges, from healthcare to environmental sustainability.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-left">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/services-2.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Cutting-edge solutions for enterprises</a></h5>
-                <p class="card-text">
-We empower businesses with tech solutions. From web & mobile apps to design & community management, we bring your vision to life.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-right">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/services-3.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Tech training programs</a></h5>
-                <p class="card-text">We provide comprehensive training programs in web development and other tech fields, equipping you for success.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 d-flex" data-aos="fade-left">
-            <div class="card">
-              <div class="card-img">
-                <img src="assets/img/services-4.jpg" alt="...">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><a href="">Tech Competitions</a></h5>
-                <p class="card-text"> We host exciting hackathons and coding competitions that spark innovation and tackle real-world problems.</p>
-                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2 data-aos="fade-in">Projects</h2>
-          <p data-aos="fade-in">Dive into our tech projects.</p>
-        </div>
-
-        <div class="row content">
-          <div class="col-md-5" data-aos="fade-right">
-            <img src="assets/img/features-1.svg" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-7 pt-4" data-aos="fade-left">
-            <h3>GasTrack</h3>
-            <p class="fst-italic">
-              <b> Problem:</b> Finding the right gas bottle can be a frustrating experience. 
-              You might spend time calling or visiting stores, only to discover they don't have the specific gas you need.
-
-              <b>Solution:</b> We're building GasTrack, a user-friendly web application that will connect you with nearby gas stores and their real-time gas inventory. 
-              Simply enter the type of gas bottle you need, and GasTrack will show you the closest stores that have it in stock.
-            </p>
-            <ul>
-              <li><i class="bi bi-check"></i> Save time and effort: No more wasted trips or endless phone calls!</li>
-              <li><i class="bi bi-check"></i> Convenience: Find what you need quickly and easily from the comfort of your home.</li>
-              <li><i class="bi bi-check"></i> Transparency: Real-time inventory ensures you only visit stores that have your gas in stock.</li>
-            </ul>
-          </div>
-        </div>
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
@@ -335,53 +333,55 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
       </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing section-bg">
+    <!-- ======= Hosting Section ======= -->
+    <section id="hosting" class="hosting section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2 data-aos="fade-in">Pricing</h2>
-          <p data-aos="fade-in">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2 data-aos="fade-in">Hosting</h2>
+          <p data-aos="fade-in">We provide various hosting services. Choose the one that best fits your needs.</p>
         </div>
 
         <div class="row no-gutters">
 
           <div class="col-lg-4 box" data-aos="zoom-in">
-            <h3>Free</h3>
-            <h4>$0<span>per month</span></h4>
+            <h3>Basic</h3>
+            <h4>5000FCFA<span>per month</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+              <li><i class="bx bx-check"></i> Storage space of 2GB</li>
+              <li><i class="bx bx-check"></i> 1 Website supported</li>
+              <li><i class="bx bx-check"></i> 3 email accounts</li>
+              <li><i class="bx bx-check"></i> 2GB RAM</li>
+              <li><i class="bx bx-check"></i> SSl shared certificate</li>
+              <!-- <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
+              <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
             </ul>
             <a href="#" class="get-started-btn">Get Started</a>
           </div>
 
           <div class="col-lg-4 box featured" data-aos="zoom-in">
             <span class="featured-badge">Featured</span>
-            <h3>Business</h3>
-            <h4>$29<span>per month</span></h4>
+            <h3>Professional</h3>
+            <h4>10000FCFA<span>per month</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+              <li><i class="bx bx-check"></i> Storage space of 5GB</li>
+              <li><i class="bx bx-check"></i> 3 Website supported</li>
+              <li><i class="bx bx-check"></i> 8 email accounts</li>
+              <li><i class="bx bx-check"></i> 4GB RAM</li>
+              <li><i class="bx bx-check"></i> SSl dedicated certificate</li>
             </ul>
             <a href="#" class="get-started-btn">Get Started</a>
           </div>
 
           <div class="col-lg-4 box" data-aos="zoom-in">
-            <h3>Developer</h3>
-            <h4>$49<span>per month</span></h4>
+            <h3>Enterprice</h3>
+            <h4>18000FCFA<span>per month</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+              <li><i class="bx bx-check"></i> Storage space of 10GB</li>
+              <li><i class="bx bx-check"></i> 10 Website supported</li>
+              <li><i class="bx bx-check"></i> 15 email accounts</li>
+              <li><i class="bx bx-check"></i> 8GB RAM</li>
+              <li><i class="bx bx-check"></i> SSl wildcard certificate</li>
             </ul>
             <a href="#" class="get-started-btn">Get Started</a>
           </div>
@@ -389,7 +389,7 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section><!-- End Hosting Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <!-- <section id="faq" class="faq section-bg">
@@ -446,21 +446,21 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
                 <div class="info-box" data-aos="fade-up">
                   <i class="bx bx-map"></i>
                   <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>Ecole de police, yaounde, Cameroon </p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
+                  <p>campustechsolutions@gmail.com</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4" data-aos="fade-up" data-aos-delay="100">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  <p>+237 6 71 75 13 63<br>+237 6 52 88 06 80</p>
                 </div>
               </div>
             </div>
@@ -498,7 +498,6 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
     </section><!-- End Contact Section -->
 
   <!-- </main>End #main -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -511,7 +510,7 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
             <div class="logo-end">
               <a href="index.html"><img src="assets/img/logo-cts.png" alt="" class="img-fluid"></a>
             </div>
-            <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <p>Stay connected to get notified on new projects and events concerning CTS</p>
           </div>
         </div>
 
@@ -534,16 +533,17 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
       </div>
     </div>
 
+
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Bocor</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>campustechsolutions</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bocor-bootstrap-template-nice-animation/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -560,6 +560,7 @@ We empower businesses with tech solutions. From web & mobile apps to design & co
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
 
 </body>
 
