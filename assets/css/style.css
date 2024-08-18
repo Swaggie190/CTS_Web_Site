@@ -24,7 +24,7 @@
 body {
   font-family: var(--font-main);
   font-size: 19px;
-  
+  background: rgb(51,30,30);
 }
 
 a {
@@ -92,11 +92,21 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
+  height: 100px;
   z-index: 997;
   transition: all 0.5s;
   padding: 16px 0;
-  background: #2891ec;
   text-decoration: solid ;
+  background: #1e4356;
+}
+
+#header.header-transparent {
+  background: none;
+}
+
+#header.header-scrolled {
+  background: rgba(51, 30, 30, 0.8);
+  height: 80px;
 }
 
 #header  h1 {
@@ -361,7 +371,7 @@ h6 {
   padding: 0 0 0 0;
   overflow: hidden;
   position: relative;
-  background: rgb(153, 204, 255, 0.6);
+  background: rgb(184, 183, 183);
   /* background: linear-gradient(180deg, rgb(153, 204, 255,0.8) 0%, rgb(40, 145, 236, 0.8) 35%, rgb(39, 144, 236,0.40) 100%); 
  */
 }
@@ -372,26 +382,26 @@ h6 {
   left: 50%;
   top: 0;
   width: 130%;
-  height: 69%;
-  background: #2891ec;
-  opacity: 1;
+  height: 95%;
+  background: rgb(51, 30, 30);
+  opacity: 0.3;
   z-index: 0;
-  border-radius: 0 0 50% 60%;
-  transform: translateX(-50%)  rotate(1deg);
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%)  rotate(0deg);
 }
 
-/* #hero::after {
+#hero::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 0;
   width: 130%;
-  height: 65%;
-  background: linear-gradient(to right, rgb(40, 145, 236, 0.8), rgb(61, 152, 231,0.8)), url("../img/hero-bg.jpg") center top no-repeat;
+  height: 96%;
+  background: linear-gradient(to right, rgb(51, 30, 30, 0.8), rgb(51, 30, 30, 0.6)), url("../img/hero-bg.jpg") center top no-repeat;
   z-index: 0;
-  border-radius: 0 0 60% 60%;
-  transform: translateX(-50%) rotate(3deg);
-}  */
+  border-radius: 0 0 50% 50%;
+  transform: translateX(-50%) rotate(2deg);
+}  
 
 #hero h1 {
   margin: 0 0 15px 0;
@@ -439,19 +449,26 @@ h6 {
 }
 
 .cta-button {
-  background-color: #2891ec;
-  color:black;
-  padding: 15px 30px;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1.2em;
-  transition: background-color 0.3s;
-  margin-top: 20px;
-  bottom: 90%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: #000;
+  animation-delay: 0.8s;
+  border: 3px solid rgb(51, 30, 30);
+  background-color: rgb(51, 30, 30, 0.50);
 }
 .cta-button:hover {
-  background-color: #2891ec;
+  background-color: rgb(51, 30, 30);
+  text-decoration: #FFC107;
+}
+#joinUsBtn:hover{
   text-decoration: #FFC107;
 }
 
@@ -461,6 +478,68 @@ h6 {
   color: #FFC107;  /* A warm yellow to complement the green */
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
 @media (max-width: 991px) {
   #hero .hero-img {
@@ -503,7 +582,7 @@ section {
 }
 
 .section-bg {
-  background: linear-gradient(180deg, #f2f6fa 0%, #fff 100%);
+  background: linear-gradient(180deg, rgb(230, 230, 230) 0%, rgb(230, 230, 230) 100%);
 }
 
 .section-title {
@@ -756,6 +835,10 @@ section {
 /*--------------------------------------------------------------
 # Projects
 --------------------------------------------------------------*/
+.projects{
+  background: rgb(184, 183, 183);
+}
+
 .projects .content+.content {
   margin-top: 100px;
 }
@@ -984,6 +1067,9 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+.team{
+  background: rgb(184, 183, 183);
+}
 .team .member {
   text-align: center;
   margin-bottom: 20px;
@@ -1197,6 +1283,10 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+
+.contact{
+  background: rgb(184, 183, 183);
+}
 .contact .info-box {
   color: #444444;
   text-align: center;
@@ -1320,14 +1410,22 @@ section {
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+
+.blog .blog-title{
+  align-items: center;
+  font-size: 18px;
+  font-weight: 100;
+}
 .blog {
-  padding: 40px 0 20px 0;
+  padding: 100px 0 20px 0;
+  background: rgb(230, 230, 230);
 }
 
 .blog .entry {
   padding: 30px;
   margin-bottom: 60px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
 .blog .entry .entry-img {
@@ -1681,6 +1779,7 @@ section {
   padding: 30px;
   margin: 0 0 60px 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 
 .blog .sidebar .sidebar-title {
@@ -1857,7 +1956,7 @@ section {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgb(40, 145, 236, 0.60);
+  background: rgb(51, 30, 30,0.60);
   z-index: 0;
 }
 
@@ -1933,7 +2032,7 @@ section {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #2891ec;
+  background: rgb(51, 30, 30);
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1952,7 +2051,7 @@ section {
 }
 
 #footer .footer-bottom {
-  border-top: 1px solid #2891ec;
+  border-top: 2px solid rgb(51, 30, 30);
   z-index: 2;
   position: relative;
   padding-top: 40px;

@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';  
+        $mail->Host       = '';  
         $mail->SMTPAuth   = true;
         $mail->Username   = 'wisdomsibafo45@gmail.com';     
         $mail->Password   = 'opah sysc jmfx nfod';     
